@@ -8,7 +8,7 @@
                 {{ session()->get('message') }}
             </div>
         @endif
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             @include('layout.navigation')
 
             <div class="content">

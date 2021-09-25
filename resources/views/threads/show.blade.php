@@ -3,7 +3,7 @@
 @include('layout.header')
 
 <body>
-<div class="flex-center position-ref full-height">
+<div class="flex-center position-ref">
     @include('layout.navigation')
 
     <div class="content show">
@@ -20,6 +20,10 @@
             <p>
                 {{ $thread->text }}
             </p>
+
+            @if ($thread->hasComments())
+                @include('layout.showComments', ['commentable' => $thread])
+            @endif
 
             @include('layout.comment', ['commentableId' => $thread->id, 'commentableType' => 'thread'])
         </div>
