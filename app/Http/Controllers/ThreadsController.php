@@ -56,11 +56,13 @@ class ThreadsController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function show($id)
+    public function show(int $id) : View
     {
-        //
+        $thread = Thread::findOrFail($id);
+
+        return view('threads.show', ['thread' => $thread]);
     }
 
     /**
