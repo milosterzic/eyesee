@@ -15,4 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+Route::get('/auth/redirect', 'LoginController@socialLogin')->name('login');
+
+Route::get('/auth/callback', 'LoginController@handleProviderCallback');
+
+Route::get('/auth/logout', 'LoginController@logout')->name('logout');
