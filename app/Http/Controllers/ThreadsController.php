@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreThread;
 use App\Thread;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,22 +26,31 @@ class ThreadsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return View
      */
-    public function create() : Response
+    public function create() : View
     {
-        //
+        return view('threads.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreThread $request
+     * @return mixed
      */
-    public function store(Request $request)
+    public function store(StoreThread $request)
     {
-        //
+        $thread = new Thread();
+
+        $thread->title = $request->get('title');
+        $thread->text = $request->get('text');
+        $thread->user_id = Auth::user()->id;
+        $thread->is_posted = 0;
+
+        $thread->save();
+
+        return redirect(route('welcome'))->with('message', 'Thread successfully created!');
     }
 
     /**

@@ -12,6 +12,11 @@
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     </head>
     <body>
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

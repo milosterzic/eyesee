@@ -40,7 +40,7 @@
 
                 <label for="title">Thread Title <span class="asterix">*</span></label>
 
-                <input id="title" type="text" class="@error('title') is-invalid @enderror form-control" required>
+                <input id="title" name="title" type="text" class="@error('title') is-invalid @enderror form-control" required>
 
                 @error('title')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -48,7 +48,7 @@
 
                 <label for="text">Text <span class="asterix">*</span></label>
 
-                <textarea id="text" class="@error('text') is-invalid @enderror form-control" required></textarea>
+                <textarea id="text" name="text" class="@error('text') is-invalid @enderror form-control" required></textarea>
 
                 @error('text')
                     <div class="alert alert-danger">{{ $message }}</div>
