@@ -85,6 +85,25 @@
                         <a href="#">Create thread</a>
                     @endauth
                 </div>
+
+                <div>
+                    @foreach($threads as $thread)
+                        <div class="thread-wrapper" style="text-align: left">
+                            <a href="{{ route('threads.show', [$thread->id]) }}"><h2>{{ $thread->title }}</h2></a>
+                            <p>
+                                @auth
+                                    @if(Auth::user()->isOwner($thread->id))
+                                        @if(Auth::user()->canEdit($thread->id))
+                                            <a href="{{ route('threads.edit', [$thread->id]) }}">EDIT</a>
+                                        @endif
+
+                                        <a href="{{ route('threads.destroy', [$thread->id]) }}">DELETE</a>
+                                    @endif
+                                @endauth
+                            </p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </body>
