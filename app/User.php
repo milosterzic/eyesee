@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -45,5 +46,27 @@ class User extends Authenticatable
     public function threads() : HasMany
     {
         return $this->hasMany(Thread::class);
+    }
+
+    /**
+     * Check if user is owner of thread.
+     *
+     * @param int $threadId
+     * @return bool
+     */
+    public function isOwner(int $threadId) : bool
+    {
+        return $this->threads->contains($threadId);
+    }
+
+    /**
+     * Check if user is owner of thread.
+     *
+     * @param int $threadId
+     * @return bool
+     */
+    public function canEdit(int $threadId) : bool
+    {
+        return $this->isOwner($threadId) && Thread::find($threadId)->created_at > Carbon::now()->subHours(6);
     }
 }
