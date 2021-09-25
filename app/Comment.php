@@ -3,11 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Interfaces\CommentableInterface;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Comment extends Model
+class Comment extends Model implements CommentableInterface
 {
     /**
      * Get the owning commentable model.
@@ -37,5 +38,15 @@ class Comment extends Model
     public function user() : BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Check if instance has comments.
+     *
+     * @return  bool
+     */
+    public function hasComments(): bool
+    {
+        return $this->comments()->exists();
     }
 }
