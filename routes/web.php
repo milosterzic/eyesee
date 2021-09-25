@@ -23,10 +23,10 @@ Route::group(['prefix' => '/auth', 'name' => 'auth'], function () {
     Route::get('logout', 'LoginController@logout')->name('logout');
 });
 
-Route::resource('threads', 'ThreadsController')->only([
-    'index', 'show'
-]);
-
 Route::resource('threads', 'ThreadsController')->except([
     'index', 'show'
 ])->middleware('auth');
+
+Route::resource('threads', 'ThreadsController')->only([
+    'index', 'show'
+]);
