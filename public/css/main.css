@@ -58,3 +58,12 @@ h2 span {
     font-style: italic;
     font-size: 16px;
 }
+
+.form {
+    text-align: left;
+    margin-top: 100px;
+}
+
+.asterix {
+    color: red;
+}

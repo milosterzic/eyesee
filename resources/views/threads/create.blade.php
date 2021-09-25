@@ -38,17 +38,17 @@
             <form method="post" action="{{ route('threads.store') }}" class="form">
                 @csrf
 
-                <label for="title">Thread Title</label>
+                <label for="title">Thread Title <span class="asterix">*</span></label>
 
-                <input id="title" type="text" class="@error('title') is-invalid @enderror form-control">
+                <input id="title" type="text" class="@error('title') is-invalid @enderror form-control" required>
 
                 @error('title')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
-                <label for="text">Text</label>
+                <label for="text">Text <span class="asterix">*</span></label>
 
-                <textarea id="text" class="@error('text') is-invalid @enderror form-control"></textarea>
+                <textarea id="text" class="@error('text') is-invalid @enderror form-control" required></textarea>
 
                 @error('text')
                     <div class="alert alert-danger">{{ $message }}</div>
