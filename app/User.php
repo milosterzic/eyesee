@@ -49,6 +49,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Relation to comments table.
+     *
+     * @return HasMany
+     */
+    public function comments() : HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
      * Check if user is owner of thread.
      *
      * @param int $threadId
