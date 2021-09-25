@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreThread;
 use App\Thread;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use App\Http\Requests\StoreThread;
+use App\Http\Requests\UpdateThread;
+use Illuminate\Support\Facades\Auth;
 
 class ThreadsController extends Controller
 {
@@ -68,23 +67,36 @@ class ThreadsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function edit($id)
+    public function edit(int $id) : View
     {
-        //
+        $thread = Thread::findOrFail($id);
+
+        if (Auth::user()->canEdit($thread->id)) {
+            return view('threads.edit', ['thread' => $thread]);
+        }
+
+        return abort(404);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpdateThread  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function update(Request $request, $id)
+    public function update(UpdateThread $request, $id)
     {
-        //
+        $thread = Thread::find($id);
+
+        $thread->title = $request->get('title');
+        $thread->text = $request->get('text');
+
+        $thread->save();
+
+        return redirect(route('welcome'))->with('message', 'Thread successfully updated!');
     }
 
     /**
