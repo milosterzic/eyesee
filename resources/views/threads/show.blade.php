@@ -6,7 +6,7 @@
 <div class="flex-center position-ref full-height">
     @include('layout.navigation')
 
-    <div class="content">
+    <div class="content show">
         <div class="title m-b-md">
             EyeSee
         </div>
@@ -20,6 +20,8 @@
             <p>
                 {{ $thread->text }}
             </p>
+
+            @include('layout.comment', ['commentableId' => $thread->id, 'commentableType' => 'thread'])
         </div>
     </div>
 </div>
