@@ -16,4 +16,6 @@
 
         <button type="submit" class="btn btn-success margin-top float-right">COMMENT</button>
     </form>
+
+    <div style="clear: both"></div>
 @endauth
