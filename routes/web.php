@@ -17,8 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/auth/redirect', 'LoginController@socialLogin')->name('login');
+Route::group(['prefix' => '/auth', 'name' => 'auth'], function () {
+    Route::get('redirect', 'LoginController@socialLogin')->name('login');
 
-Route::get('/auth/callback', 'LoginController@handleProviderCallback');
+    Route::get('callback', 'LoginController@handleProviderCallback');
 
-Route::get('/auth/logout', 'LoginController@logout')->name('logout');
+    Route::get('logout', 'LoginController@logout')->name('logout');
+
+});
