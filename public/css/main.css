@@ -56,6 +56,7 @@ html, body {
 
 .thread-wrapper.show {
     max-width: 60%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -72,4 +73,8 @@ h2 span {
 
 .asterix {
     color: red;
+}
+
+.margin-bottom {
+    margin-bottom: 60px;
 }
