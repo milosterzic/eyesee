@@ -78,3 +78,13 @@ h2 span {
 .margin-bottom {
     margin-bottom: 60px;
 }
+
+.btn-position {
+    padding: 0;
+    border: 0;
+    margin-top: -3px;
+}
+
+.edit-link {
+    margin-right: 10px;
+}

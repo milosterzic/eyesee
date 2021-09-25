@@ -105,10 +105,18 @@ class ThreadsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        $thread = Thread::findOrFail($id);
+
+        if (Auth::user()->isOwner($thread->id)) {
+            $thread->delete();
+
+            return redirect(route('welcome'))->with('message', 'Thread successfully deleted!');
+        }
+
+        return abort(404);
     }
 }

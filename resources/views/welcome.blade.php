@@ -29,11 +29,17 @@
                             <p>
                                 @auth
                                     @if(Auth::user()->isOwner($thread->id))
-                                        @if(Auth::user()->canEdit($thread->id))
-                                            <a href="{{ route('threads.edit', [$thread->id]) }}">EDIT</a>
-                                        @endif
 
-                                        <a href="{{ route('threads.destroy', [$thread->id]) }}">DELETE</a>
+                                        <form action="{{ route('threads.destroy', [$thread->id]) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            @if(Auth::user()->canEdit($thread->id))
+                                                <a href="{{ route('threads.edit', [$thread->id]) }}" class="edit-link">EDIT</a>
+                                            @endif
+
+                                            <button type="submit" class="btn btn-link btn-position">DELETE</button>
+                                        </form>
                                     @endif
                                 @endauth
 
