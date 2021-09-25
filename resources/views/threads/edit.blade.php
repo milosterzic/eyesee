@@ -49,7 +49,7 @@
 
                 <label for="text">Text <span class="asterix">*</span></label>
 
-                <textarea id="text" name="text" class="@error('text') is-invalid @enderror form-control" required value="{{ $thread->text }}"></textarea>
+                <textarea id="text" name="text" class="@error('text') is-invalid @enderror form-control" required>{{ $thread->text }}</textarea>
 
                 @error('text')
                 <div class="alert alert-danger">{{ $message }}</div>
