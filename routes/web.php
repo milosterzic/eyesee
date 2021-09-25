@@ -30,3 +30,7 @@ Route::resource('threads', 'ThreadsController')->except([
 Route::resource('threads', 'ThreadsController')->only([
     'index', 'show'
 ]);
+
+Route::resource('comments', 'CommentsController')->only([
+    'store', 'update'
+])->middleware('auth');
