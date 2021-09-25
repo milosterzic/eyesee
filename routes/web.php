@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', 'ThreadsController@index')->name('welcome');
 
 Route::group(['prefix' => '/auth', 'name' => 'auth'], function () {
     Route::get('redirect', 'LoginController@socialLogin')->name('login');
@@ -23,5 +21,6 @@ Route::group(['prefix' => '/auth', 'name' => 'auth'], function () {
     Route::get('callback', 'LoginController@handleProviderCallback');
 
     Route::get('logout', 'LoginController@logout')->name('logout');
-
 });
+
+Route::resource('threads', 'ThreadsController');
