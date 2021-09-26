@@ -7,54 +7,49 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Developer Test - Miloš Terzić
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Setup
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Pull project.
+- Add these lines to `.env` file. Fill them with data provided by Reddit or contact me.
+  ```
+  REDDIT_CLIENT_ID=
+  REDDIT_CLIENT_SECRET=
+  REDDIT_REDIRECT_URI=
+  ```
+- Run `composer instal`
+- Run `php artisan migrate`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Task
 
-## Learning Laravel
+Implement a simple Reddit like app using Laravel framework:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Project should be API based, preferably RESTful.
+- For user login please use Reddit API (https://www.reddit.com/dev/api/) only registered
+  users can login
+- It should have thread CRUD
+- It should have comments CRUD
+- Only authenticated users can post a new thread and a new comment
+- Only user who created the thread should be able to post that thread to real Reddit via
+  Reddit API
+- Only user who created the thread should be able to edit the thread
+- Thread cannot be edited 6h after creation
+- Comments needs to be manually set as visible
+- Only user who created the thread can make comments visible
+- Comments should have reply option
+- Every child comment should have a reply option (infinite nesting)
+- Project should have two views: thread list view, thread view with infinite nested
+  comments and reply
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Bonus
+- Comments should have upvote function
+- Add phpunit through composer and write at least one test
+  
+## Tips:
+- Project need to use composer and at least composer autoload
+- Design of the views is not important, you can use some theme or plain
+  Bootstrap
 
 ## License
 
