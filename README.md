@@ -20,6 +20,7 @@
   ```
 - Run `composer instal`
 - Run `php artisan migrate`
+- Run `php artisan key:generate`
 
 ## Task
 
