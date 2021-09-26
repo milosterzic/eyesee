@@ -31,7 +31,7 @@ Implement a simple Reddit like app using Laravel framework:
 - [x] It should have thread CRUD
 - [x] It should have comments CRUD
 - [x] Only authenticated users can post a new thread and a new comment
-- [ ]Only user who created the thread should be able to post that thread to real Reddit via
+- [ ] Only user who created the thread should be able to post that thread to real Reddit via
   Reddit API
 - [x] Only user who created the thread should be able to edit the thread
 - [x] Thread cannot be edited 6h after creation
