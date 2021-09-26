@@ -81,4 +81,16 @@ class Comment extends Model implements CommentableInterface
     {
         return $query->where('is_approved', 1);
     }
+
+    /**
+     * Set is_approved field to 1.
+     *
+     * @return  self
+     */
+    public function approve() : self
+    {
+        $this->is_approved = 1;
+
+        return $this;
+    }
 }
