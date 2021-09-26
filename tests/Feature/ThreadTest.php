@@ -29,6 +29,7 @@ class ThreadTest extends TestCase
         $response->assertSee($thread->title);
         $response->assertDontSee('EDIT');
         $response->assertDontSee('DELETE');
+        $response->assertDontSee('Create thread');
     }
 
     /**
@@ -52,6 +53,7 @@ class ThreadTest extends TestCase
         $response->assertSee($thread->title);
         $response->assertSee('EDIT');
         $response->assertSee('DELETE');
+        $response->assertSee('Create thread');
     }
 
     /**
@@ -78,5 +80,6 @@ class ThreadTest extends TestCase
         $response->assertSee($thread->title);
         $response->assertDontSee('EDIT');
         $response->assertDontSee('DELETE');
+        $response->assertSee('Create thread');
     }
 }
