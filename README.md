@@ -46,7 +46,7 @@ Implement a simple Reddit like app using Laravel framework:
 - [ ] Comments should have upvote function
 - [x] Add phpunit through composer and write at least one test
   
-## Tips:
+## Tips
 - Project need to use composer and at least composer autoload
 - Design of the views is not important, you can use some theme or plain
   Bootstrap
