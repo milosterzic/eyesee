@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreComment;
+use App\Http\Requests\UpdateComment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
@@ -34,12 +34,16 @@ class CommentsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpdateComment  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, int $id)
+    public function update(UpdateComment $request, int $id) : RedirectResponse
     {
-        //
+        $comment = Comment::findOrFail($id);
+
+        $comment->approve()->save();
+
+        return redirect()->back()->with('message', 'Comment successfully approved!');
     }
 }
