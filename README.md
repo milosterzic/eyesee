@@ -25,26 +25,26 @@
 
 Implement a simple Reddit like app using Laravel framework:
 
-- Project should be API based, preferably RESTful.
-- For user login please use Reddit API (https://www.reddit.com/dev/api/) only registered
+- [x] Project should be API based, preferably RESTful.
+- [x] For user login please use Reddit API (https://www.reddit.com/dev/api/) only registered
   users can login
-- It should have thread CRUD
-- It should have comments CRUD
-- Only authenticated users can post a new thread and a new comment
-- Only user who created the thread should be able to post that thread to real Reddit via
+- [x] It should have thread CRUD
+- [x] It should have comments CRUD
+- [x] Only authenticated users can post a new thread and a new comment
+- [ ]Only user who created the thread should be able to post that thread to real Reddit via
   Reddit API
-- Only user who created the thread should be able to edit the thread
-- Thread cannot be edited 6h after creation
-- Comments needs to be manually set as visible
-- Only user who created the thread can make comments visible
-- Comments should have reply option
-- Every child comment should have a reply option (infinite nesting)
-- Project should have two views: thread list view, thread view with infinite nested
+- [x] Only user who created the thread should be able to edit the thread
+- [x] Thread cannot be edited 6h after creation
+- [x] Comments needs to be manually set as visible
+- [x] Only user who created the thread can make comments visible
+- [x] Comments should have reply option
+- [x] Every child comment should have a reply option (infinite nesting)
+- [x] Project should have two views: thread list view, thread view with infinite nested
   comments and reply
 
 ## Bonus
-- Comments should have upvote function
-- Add phpunit through composer and write at least one test
+- [ ] Comments should have upvote function
+- [x] Add phpunit through composer and write at least one test
   
 ## Tips:
 - Project need to use composer and at least composer autoload
