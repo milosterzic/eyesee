@@ -38,4 +38,14 @@ class Thread extends Model implements CommentableInterface
     {
         return $this->comments()->exists();
     }
+
+    /**
+     * Check if instance has approved comments.
+     *
+     * @return  bool
+     */
+    public function hasApprovedComments(): bool
+    {
+        return $this->comments()->approved()->exists();
+    }
 }

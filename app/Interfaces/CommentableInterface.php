@@ -19,4 +19,11 @@ interface CommentableInterface
      * @return  bool
      */
     public function hasComments() : bool;
+
+    /**
+     * Check if instance has approved comments.
+     *
+     * @return  bool
+     */
+    public function hasApprovedComments() : bool;
 }
