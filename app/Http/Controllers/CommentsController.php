@@ -28,7 +28,7 @@ class CommentsController extends Controller
 
         $commentable->comments()->save($comment);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Comment successfully posted! It will appear after the approval of the thread owner.');
     }
 
     /**
